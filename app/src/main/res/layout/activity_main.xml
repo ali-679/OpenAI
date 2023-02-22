@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".Views.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/editText_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/button_record"
+                android:hint="متن را وارد کنید"
+                android:minHeight="100dp"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                app:cornerRadius="8dp"
+                android:text="ضبط" />
+
+            <TextView
+                android:id="@+id/textView_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/button_translate"
+                android:minHeight="100dp"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText_input"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="8dp"
+                app:cornerRadius="8dp"
+                android:text="ترجمه" />
+
+            <TextView
+                android:id="@+id/textView_answerEng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/button_translate"
+                android:minHeight="100dp"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_input"
+                android:layout_alignParentLeft="true"
+                app:cornerRadius="8dp"
+                android:layout_marginTop="8dp"
+                android:text="گفتگو" />
+
+            <TextView
+                android:id="@+id/textView_answerPers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_answerEng"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/button_translate"
+                android:minHeight="100dp"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_paly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_answerEng"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="8dp"
+                android:text="پخش"
+                app:cornerRadius="8dp" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_answerPers"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_load"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:text="بازیابی گفتگو"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="ذخیره گفتگو"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تنظیمات"
+                app:cornerRadius="8dp"
+                android:layout_below="@id/linear"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
