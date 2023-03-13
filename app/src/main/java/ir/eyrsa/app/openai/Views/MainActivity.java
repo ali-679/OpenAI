@@ -26,6 +26,7 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import ir.eyrsa.app.openai.Config.Application;
 import ir.eyrsa.app.openai.Config.Config;
 import ir.eyrsa.app.openai.Model.BodyRecieveModel;
 import ir.eyrsa.app.openai.Model.BodySendModel;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String TAG = "MAIN_ACTIVITY";
 
-    boolean source=false;
+    boolean source = false;
 
 
     @Override
@@ -112,16 +113,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void click() {
         button_translate.setOnClickListener(this);
         button_record.setOnClickListener(this);
+        button_setting.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if (view == button_translate) {
-            if(!editText_input.getText().toString().equals(""))
-            initTranslate();
-        }
-        else if (view == button_record) {
+            if (!editText_input.getText().toString().equals(""))
+                initTranslate();
+        } else if (view == button_record) {
             speechToText();
+        } else if (view == button_setting) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         }
     }
 
@@ -129,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressDialog.setTitle("دریافت اطلاعات از سرور...");
         progressDialog.show();
 
-        source=true;
+        source = true;
 
         prompt = editText_input.getText().toString().trim();
 
@@ -185,14 +188,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         Log.d(TAG, "onSuccess: TranslatedText: " + translatedText);
 
                                         textView.setText(translatedText);
-                                        if (source)
-                                        {
+                                        if (source) {
                                             bodySendModel = new BodySendModel(Config.model, translatedText, Config.maxTokens, Config.temperature);
 
                                             getFromAi(header, bodySendModel);
-                                            source=false;
-                                        }
-                                        else
+                                            source = false;
+                                        } else
                                             progressDialog.dismiss();
                                     }
                                 })
